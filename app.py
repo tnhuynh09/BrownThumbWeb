@@ -4,5 +4,5 @@ app = Flask(__name__)
 
 @app.route('/home')
 def show_homepage():
-    return ("HOME")
+    return ("HOME ENDPOINT")
     # return render_template('base.html')
