@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Brown Thumb{% endblock %}
+
+{% block resource %}
+<link rel="stylesheet" href="/static/stylesheets/home.css">
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container d-flex align-items-center justify-content-center">
+    <div class="card border-0 shadow my-5">
+        <div class="card-body p-5">
+            <h1 class="font-weight-light">Welcome Plant Lovers</h1>
+            <p class="lead">A resource to help all plants lover with a brown thumb to keep their plants alive.</p>
+            <p class="lead">Let's start the search!</p>
+
+            <div class="d-flex align-items-center justify-content-center" style="height: 100px">
+                <form class="mx-2 my-auto d-inline w-100" id="search-form">
+                    <div class="input-group">
+                        <input type="text" class="form-control" placeholder="Search" id="search-query">
+                        <span class="input-group-append">
+                            <button class="btn input-group-text" type="button" id="search-btn"><i
+                                    class="fas fa-search text-grey" aria-hidden="true"></i></button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/javascript/search.js"></script>
+{% endblock %}

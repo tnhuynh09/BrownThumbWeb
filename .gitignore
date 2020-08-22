@@ -1,2 +1,6 @@
 venv/
 __pycache__/
+.DS_Store
+static/.DS_Store
+static/stylesheets/.DS_Store
+templates/.DS_Store
