@@ -14,9 +14,8 @@ async function handleSearch(evt) {
 
     let query = $searchQuery.val();
     // if (!query) return;
-    console.log("***********START ***********")
 
-    let response = await axios.get(`https://brown-thumb-api.herokuapp.com/search?query=${query}`)
+    let response = await apiSearch(query);
     let result = response.data
     console.log('result', result)
     return result;

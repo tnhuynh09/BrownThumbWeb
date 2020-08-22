@@ -1,54 +1,47 @@
 {% extends 'base.html' %}
 
-{% block title %}Signup{% endblock %}
+{% block title %}Login{% endblock %}
 
 {% block resource %}
 <link rel="stylesheet" href="/static/stylesheets/login.css">
 {% endblock %}
 
 {% block content %}
+<!-- Page Content -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 d-none d-md-block image-container">
+        </div>
 
-<body>
-    <div class="container-fluid">
-        <div class="row no-gutter">
-            <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-            <div class="col-md-8 col-lg-6 form-container">
-                <div class="login d-flex align-items-center py-5">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-9 col-lg-8 mx-auto">
-                                <h3 class="login-heading mb-4">Welcome back!</h3>
-                                <form>
-                                    <div class="form-label-group">
-                                        <input type="username" id="username" class="form-control" placeholder="Username"
-                                            required autofocus>
-                                        <label for="inputEmail">Username</label>
-                                    </div>
-
-                                    <div class="form-label-group">
-                                        <input type="password" id="inputPassword" class="form-control"
-                                            placeholder="Password" required>
-                                        <label for="inputPassword">Password</label>
-                                    </div>
-
-                                    <button
-                                        class="btn btn-lg btn-primary btn-block btn-login text-uppercase font-weight-bold mb-2"
-                                        type="submit">Sign in</button>
-                                    <div class="text-center">
-                                </form>
-                                <div style="color: #777">Don't have an account?
-                                    <a href="/signup" class="signup-link">
-                                        Signup here</a>
-                                </div>
-                            </div>
-                        </div>
+        <div class="col-lg-6 col-md-6 form-container">
+            <div class="col-lg-8 col-md-12 col-sm-9 col-xs-12 form-box text-center">
+                <div class="logo mb-3">
+                    <img src="" alt="" width="150px">
+                </div>
+                <div class="heading mb-4">
+                    <h4>
+                        Login
+                    </h4>
+                </div>
+                <form>
+                    <div class="form-input">
+                        <span><i class="fas fa-user-circle"></i></span>
+                        <input type="text" placeholder="Username" required>
                     </div>
+                    <div class="form-input">
+                        <span><i class="fas fa-lock"></i></span>
+                        <input type="password" placeholder="Password" required>
+                    </div>
+                    <div class="text-left mb-3">
+                        <button type="submit" class="btn">Login</button>
+                    </div>
+                </form>
+                <div style="color: #777">Don't have an account yet?
+                    <a href="/sigup" class="signup-link">
+                        Signup here</a>
                 </div>
             </div>
         </div>
     </div>
-</body>
-
-
-</html>
+</div>
 {% endblock %}

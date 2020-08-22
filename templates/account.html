@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block title %}My Account{% endblock %}
+
+{% block resource %}
+<link rel="stylesheet" href="/static/stylesheets/account.css">
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container portfolio">
+    <div class="bio-info mt-5">
+        <div class="row py-5">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bio-image">
+                            <img src="https://images.unsplash.com/photo-1543523195-e0613799d7ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                                alt="image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bio-content pt-4">
+                    <h1>Hi there, I'm @username</h1>
+                    <div>
+                        <h6 class="pt-2">Take a look at the plants currently in my care!
+                        </h6>
+                        <a class="btn btn-light mt-2 mr-1" href="/my_plants"><i class="fas fa-seedling"></i> My Plant
+                            Collection</a>
+                        <a class="btn btn-light mt-2" href="/account/edit"><i class="fas fa-edit"></i> Edit
+                            Profile</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

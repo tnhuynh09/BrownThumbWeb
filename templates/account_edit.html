@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block resource %}
+<link rel="stylesheet" href="/static/stylesheets/account.css">
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container portfolio">
+    <div class="bio-info mt-5">
+        <div class="row py-5">
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="bio-image">
+                            <img src="https://images.unsplash.com/photo-1543523195-e0613799d7ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
+                                alt="image" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="bio-content pt-4">
+                    <h1>Edit Profile</h1>
+
+                    <form>
+                        <div class="form-group row">
+                            <div class="col-sm-10 mb-2">
+                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
+                            </div>
+                            <div class="col-sm-10 mb-2">
+                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            </div>
+                            <div class="col-sm-10 mb-2">
+                                <input type="text" class="form-control" id="inputImageUrl" placeholder="Image Url">
+                                <button type="submit" class="btn btn-light my-2"><i class="fas fa-check-circle"></i>
+                                    Submit</button>
+                            </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

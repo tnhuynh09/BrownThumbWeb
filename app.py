@@ -28,9 +28,8 @@ def do_logout():
     if CURR_USER_KEY in session:
         del session[CURR_USER_KEY]
 
-@app.route('/')
+@app.route('/', methods=["GET"])
 def show_homepage():
-
     return render_template('home.html')
 
 @app.route('/signup', methods=["GET", "POST"])
@@ -41,8 +40,14 @@ def signup():
 def login():
     return render_template("login.html")
 
+@app.route('/account', methods=["GET"])
+def show_account():
+    return render_template('account.html')
+
+@app.route('/account/edit', methods=["GET", "POST"])
+def edit_account():
+    return render_template('account_edit.html')
+
 @app.route('/search_result', methods=["GET"])
 def show_search_results():
-
-
-    return("works")
+    return render_template("search_result.html")
