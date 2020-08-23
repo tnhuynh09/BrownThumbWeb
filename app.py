@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, session, g
+from flask import Flask, render_template, request, session, g, redirect
 import requests
 
 CURR_USER_KEY = "curr_user"
@@ -8,38 +8,56 @@ app = Flask(__name__)
 
 ##############################################################################
 # User signup/login/logout
-@app.before_request
-def add_user_to_g():
-    """If we're logged in, add curr user to Flask global."""
 
-    if CURR_USER_KEY in session:
-        g.user = User.query.get(session[CURR_USER_KEY])
 
-    else:
-        g.user = None
+# @app.before_request
+# def add_user_to_g():
+#     """If we're logged in, add curr user to Flask global."""
 
-def do_login(user):
-    """Log in user."""
+#     if CURR_USER_KEY in session:
+#         g.user = User.query.get(session[CURR_USER_KEY])
 
-    session[CURR_USER_KEY] = user.id
+#     else:
+#         g.user = None
 
-def do_logout():
-    """Logout user."""
+# def do_login(user):
+#     """Log in user."""
 
-    if CURR_USER_KEY in session:
-        del session[CURR_USER_KEY]
+#     session[CURR_USER_KEY] = user.id
 
-@app.route('/', methods=["GET"])
-def show_homepage():
-    return render_template('home.html')
+# def do_logout():
+#     """Logout user."""
+
+#     if CURR_USER_KEY in session:
+#         del session[CURR_USER_KEY]
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
+
     return render_template("signup.html")
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
     return render_template("login.html")
+
+# @app.route('/logout')
+# def logout():
+#     """Handle logout of user."""
+
+#     # do_logout()
+#     flash("You have successfully logged out.", 'success')
+#     return redirect("/login")
+
+##############################################################################
+# General user routes:
+
+
+@app.route('/', methods=["GET"])
+def show_homepage():
+    return render_template('home.html')
+
+
+
 
 @app.route('/account', methods=["GET"])
 def show_account():

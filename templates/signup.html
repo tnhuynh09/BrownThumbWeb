@@ -23,17 +23,17 @@
                         Signup
                     </h4>
                 </div>
-                <form>
+                <form id="signup-form">
                     <div class="form-input">
                         <span><i class="fas fa-user-circle"></i></span>
-                        <input type="text" placeholder="Username" required>
+                        <input id="username" type="text" placeholder="Username" required>
                     </div>
                     <div class="form-input">
                         <span><i class="fas fa-lock"></i></span>
-                        <input type="password" placeholder="Password" required>
+                        <input id="password" type="password" placeholder="Password" required>
                     </div>
                     <div class="text-left mb-3">
-                        <button type="submit" class="btn">Signup</button>
+                        <button type="submit" class="btn" id="signup-btn">Signup</button>
                     </div>
                 </form>
                 <div style="color: #777">Already have an account?
@@ -44,4 +44,6 @@
         </div>
     </div>
 </div>
+
+<script src="/static/javascript/signup.js"></script>
 {% endblock %}

@@ -7,7 +7,6 @@
 
     <script src="https://unpkg.com/jquery"></script>
     <script src="https://unpkg.com/bootstrap"></script>
-    <script src="/static/javascript/api_manager.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
     {% block resource %}ADDITIONAL STYLING GOES HERE{% endblock %}
@@ -29,19 +28,19 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="/login">Login</a>
+                        <a id="nav-login" class="nav-link" href="/login">Login</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/signup">Signup</a>
+                        <a id="nav-signup" class="nav-link" href="/signup">Signup</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/account">Username</a>
+                        <a id="nav-username" class="nav-link" href=""></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/account">My Account</a>
+                        <a id="nav-myaccount" class="nav-link" href="/account">My Account</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
+                        <a id="nav-logout" class="nav-link" href="">Logout</a>
                     </li>
                 </ul>
             </div>
@@ -57,9 +56,11 @@
         </div>
     </footer>
     <!-- Footer -->
-
-    <script src="https://unpkg.com/axios/dist/axios.js"></script>
 </body>
+
+<script src="https://unpkg.com/axios/dist/axios.js"></script>
+<script src="/static/javascript/api_manager.js"></script>
+<script src="/static/javascript/base.js"></script>
 
 
 </html>
