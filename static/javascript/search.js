@@ -13,12 +13,14 @@ async function handleSearch(evt) {
     evt.preventDefault();
 
     let query = $searchQuery.val();
-    // if (!query) return;
 
-    let response = await apiSearch(query);
-    let result = response.data
-    console.log('result', result)
-    return result;
+    if (!query) return;
+    window.location.href = '/search-result?query=' + query
+
+    // let response = await apiSearch(query);
+    // let result = response.data
+    // console.log('result', result)
+    // return result;
 }
 
 $searchForm.on("submit", handleSearch);

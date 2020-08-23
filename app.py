@@ -1,4 +1,5 @@
-from flask import Flask, render_template, session, g
+from flask import Flask, render_template, request, session, g
+import requests
 
 CURR_USER_KEY = "curr_user"
 
@@ -48,6 +49,17 @@ def show_account():
 def edit_account():
     return render_template('account_edit.html')
 
-@app.route('/search_result', methods=["GET"])
+@app.route('/search-result', methods=["GET"])
 def show_search_results():
-    return render_template("search_result.html")
+    query = request.args["query"]
+    response = requests.get("https://brown-thumb-api.herokuapp.com/search?query=" + str(query))
+    data = response.json()["results"]
+
+    return render_template("search_result.html", data=data)
+
+
+
+@app.route('/test')
+def test():
+
+    return render_template("test.html")
