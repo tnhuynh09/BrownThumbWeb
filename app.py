@@ -73,6 +73,10 @@ def show_search_results():
     # return render_template("search_result.html", data=data)
     return render_template("search_result.html")
 
+@app.route('/my-plants')
+def show_plants():
+
+    return render_template("my_plants.html")
 
 @app.route('/test')
 def test():

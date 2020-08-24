@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block title %}My Plants{% endblock %}
+
+{% block resource %}
+<link rel="stylesheet" href="/static/stylesheets/my_plants.css">
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+
+<div class="container my-5" id="plant-container">
+    <h1 class="pb-2">MY PLANTS</h1>
+    <div class="card-deck" id="card-deck">
+    </div>
+</div>
+
+<script src="/static/javascript/my_plants.js"></script>
+{% endblock %}

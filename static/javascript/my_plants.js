@@ -1,24 +1,15 @@
 let searchResult = [];
 
-function handleSearch() {
-    const queryString = window.location.search;
-    console.log("queryString", queryString);
-    const urlParams = new URLSearchParams(queryString);
-    const query = urlParams.get("query");
-    console.log("urlParams - query ", query);
+function handleDisplayMyPlants() {
 
-    // let response = await apiSearch(query);
-    // let result = response.data;
-    // console.log('result', result);
+    let userId = localStorage.getItem("userId")
 
-    apiSearch(query, function (result) {
-        // console.log('result', result);
+    apiShowUserPlants(userId, function (result) {
 
         searchResult = result.data.results;
         console.log('searchResult', searchResult);
         console.log('commonName', searchResult[0].commonName);
 
-        // for (let plant of searchResult) {
         for (let i = 0; i < searchResult.length; i++) {
             let plant = searchResult[i];
             let scientificNameLi = document.createElement("li");
@@ -46,17 +37,26 @@ function handleSearch() {
             plantUl.append(familyCommonNameLi);
             plantUl.append(genus);
 
-            let addPlantBtn = document.createElement("button");
-            addPlantBtn.classList.add("btn");
-            addPlantBtn.classList.add("btn-secondary");
-            addPlantBtn.classList.add("btn-sm");
-            // NEED TO SET ID TO THE INDEX OF THE ARRAY! 
-            // addPlantBtn.setAttribute("id", searchResult.indexOf(plant));
-            addPlantBtn.setAttribute("id", i);
-            addPlantBtn.innerText = "Add Plant";
+            let addJournalBtn = document.createElement("button");
+            addJournalBtn.classList.add("btn");
+            addJournalBtn.classList.add("btn-secondary");
+            addJournalBtn.classList.add("btn-sm");
+            addJournalBtn.classList.add("mr-2");
+            addJournalBtn.classList.add("mb-2");
 
-            addPlantBtn.addEventListener("click", addButtonOnClick);
-            // document.getElementById("myBtn").addEventListener("click", displayDate);
+            addJournalBtn.setAttribute("id", i);
+            addJournalBtn.innerText = "Add Journal";
+
+            let removePlantBtn = document.createElement("button");
+            removePlantBtn.classList.add("btn");
+            removePlantBtn.classList.add("btn-danger");
+            removePlantBtn.classList.add("btn-sm");
+            removePlantBtn.classList.add("mb-2");
+            removePlantBtn.setAttribute("id", i);
+            removePlantBtn.innerText = "Remove Plant";
+
+            addJournalBtn.addEventListener("click", addButtonOnClick);
+            removePlantBtn.addEventListener("click", addButtonOnClick);
 
             let cardBody = document.createElement("div");
             cardBody.classList.add("card-body");
@@ -72,7 +72,8 @@ function handleSearch() {
 
             cardBody.append(cardTitle);
             cardBody.append(plantUl);
-            cardBody.append(addPlantBtn);
+            cardBody.append(addJournalBtn);
+            cardBody.append(removePlantBtn);
 
             let card = document.createElement("div");
             card.classList.add("card");
@@ -119,10 +120,10 @@ async function addButtonOnClick(evt) {
         let genus = plant.genus;
         let imageUrl = plant.imageUrl;
 
-        let result = await apiAddPlants(userId, plantApiId, commonName, scientificName, family, familyCommonName, genus, imageUrl);
+        let result = await apiShowUserPlants(userId);
 
-        window.location.href = '/my-plants';
+        window.location.href = '/';
     }
 }
 
-handleSearch();
+handleDisplayMyPlants();

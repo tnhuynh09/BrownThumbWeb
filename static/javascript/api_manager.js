@@ -46,3 +46,12 @@ async function apiAddPlants(userId, plantApiId, commonName, scientificName, fami
 
     return response;
 }
+
+function apiShowUserPlants(userId, responseSuccess) {
+    console.log("API - apiShowUserPlants");
+
+    axios.get(`${HOST_API}/plants/user/${userId}`).then(response => {
+        responseSuccess(response);
+    });
+}
+
