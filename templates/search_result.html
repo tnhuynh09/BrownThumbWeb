@@ -9,9 +9,9 @@
 {% block content %}
 <!-- Page Content -->
 
-<div class="container my-5">
+<div class="container my-5" id="plant-container">
     <h1 class="pb-2">SEARCH RESULTS</h1>
-    <div class="card-deck">
+    <div class="card-deck" id="card-deck">
         {%for plant in data%}
         <div class="card mb-2">
             {% if plant.imageUrl %}

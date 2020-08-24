@@ -56,9 +56,6 @@ def login():
 def show_homepage():
     return render_template('home.html')
 
-
-
-
 @app.route('/account', methods=["GET"])
 def show_account():
     return render_template('account.html')
@@ -69,12 +66,12 @@ def edit_account():
 
 @app.route('/search-result', methods=["GET"])
 def show_search_results():
-    query = request.args["query"]
-    response = requests.get("https://brown-thumb-api.herokuapp.com/search?query=" + str(query))
-    data = response.json()["results"]
+    # query = request.args["query"]
+    # response = requests.get("https://brown-thumb-api.herokuapp.com/search?query=" + str(query))
+    # # data = response.json()["results"]
 
-    return render_template("search_result.html", data=data)
-
+    # return render_template("search_result.html", data=data)
+    return render_template("search_result.html")
 
 
 @app.route('/test')

@@ -25,8 +25,9 @@ function updateHeader() {
 
 $("#nav-logout").click(function () {
     console.log("bitches")
-    localStorage.setItem("userId", "");
-    localStorage.setItem("username", "");
+    // localStorage.setItem("userId", "");
+    // localStorage.setItem("username", "");
+    window.localStorage.clear();
     updateHeader();
     window.location.href = '/';
 });
