@@ -39,15 +39,15 @@ function handleDisplayMyPlants() {
             plantUl.append(familyCommonNameLi);
             plantUl.append(genus);
 
-            let addJournalBtn = document.createElement("button");
-            addJournalBtn.classList.add("btn");
-            addJournalBtn.classList.add("btn-secondary");
-            addJournalBtn.classList.add("btn-sm");
-            addJournalBtn.classList.add("mr-2");
-            addJournalBtn.classList.add("mb-2");
+            let viewJournalsBtn = document.createElement("button");
+            viewJournalsBtn.classList.add("btn");
+            viewJournalsBtn.classList.add("btn-secondary");
+            viewJournalsBtn.classList.add("btn-sm");
+            viewJournalsBtn.classList.add("mr-2");
+            viewJournalsBtn.classList.add("mb-2");
 
-            addJournalBtn.setAttribute("id", i);
-            addJournalBtn.innerText = "Add Journal";
+            viewJournalsBtn.setAttribute("id", i);
+            viewJournalsBtn.innerText = "View Journals";
 
             let removePlantBtn = document.createElement("button");
             removePlantBtn.classList.add("btn");
@@ -57,7 +57,7 @@ function handleDisplayMyPlants() {
             removePlantBtn.setAttribute("id", i);
             removePlantBtn.innerText = "Remove Plant";
 
-            // addJournalBtn.addEventListener("click", addButtonOnClick);
+            viewJournalsBtn.addEventListener("click", viewJournalsOnClick);
             removePlantBtn.addEventListener("click", removeUserPlantOnClick);
 
             let cardBody = document.createElement("div");
@@ -74,7 +74,7 @@ function handleDisplayMyPlants() {
 
             cardBody.append(cardTitle);
             cardBody.append(plantUl);
-            cardBody.append(addJournalBtn);
+            cardBody.append(viewJournalsBtn);
             cardBody.append(removePlantBtn);
 
             let card = document.createElement("div");
@@ -100,7 +100,6 @@ function handleDisplayMyPlants() {
 }
 
 async function removeUserPlantOnClick(evt) {
-    evt.preventDefault();
     let plant = myPlants[parseInt(event.target.id)];
     console.log("plant", plant.user_plant_id);
 
@@ -108,4 +107,13 @@ async function removeUserPlantOnClick(evt) {
     handleDisplayMyPlants();
 }
 
+async function viewJournalsOnClick(evt) {
+    console.log("viewJournalsOnClick");
+    let plant = myPlants[parseInt(event.target.id)];
+    console.log("plant id", plant);
+    window.location.href = '/journals?user-plant-id=' + plant.user_plant_id;
+}
+
 handleDisplayMyPlants();
+
+
