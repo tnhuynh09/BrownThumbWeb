@@ -55,3 +55,9 @@ function apiShowUserPlants(userId, responseSuccess) {
     });
 }
 
+async function apiDeleteUserPlants(userPlantId) {
+
+    let response = await axios.delete(`${HOST_API}/plants/${userPlantId}`);
+
+    return response;
+}

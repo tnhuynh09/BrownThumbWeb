@@ -1,4 +1,4 @@
-let searchResult = [];
+let myPlants = [];
 
 function handleDisplayMyPlants() {
 
@@ -6,12 +6,14 @@ function handleDisplayMyPlants() {
 
     apiShowUserPlants(userId, function (result) {
 
-        searchResult = result.data.results;
-        console.log('searchResult', searchResult);
-        console.log('commonName', searchResult[0].commonName);
+        myPlants = result.data.results;
+        console.log('myPlants', myPlants);
+        console.log('commonName', myPlants[0].commonName);
 
-        for (let i = 0; i < searchResult.length; i++) {
-            let plant = searchResult[i];
+        document.getElementById("card-deck").innerHTML = "";
+
+        for (let i = 0; i < myPlants.length; i++) {
+            let plant = myPlants[i];
             let scientificNameLi = document.createElement("li");
             let familyLi = document.createElement("li");
             let familyCommonNameLi = document.createElement("li");
@@ -55,8 +57,8 @@ function handleDisplayMyPlants() {
             removePlantBtn.setAttribute("id", i);
             removePlantBtn.innerText = "Remove Plant";
 
-            addJournalBtn.addEventListener("click", addButtonOnClick);
-            removePlantBtn.addEventListener("click", addButtonOnClick);
+            // addJournalBtn.addEventListener("click", addButtonOnClick);
+            removePlantBtn.addEventListener("click", removeUserPlantOnClick);
 
             let cardBody = document.createElement("div");
             cardBody.classList.add("card-body");
@@ -97,33 +99,13 @@ function handleDisplayMyPlants() {
     });
 }
 
-async function addButtonOnClick(evt) {
-    console.log("HELOOOO WORRRRRLLLDDDD");
-
+async function removeUserPlantOnClick(evt) {
     evt.preventDefault();
+    let plant = myPlants[parseInt(event.target.id)];
+    console.log("plant", plant.user_plant_id);
 
-    if (localStorage.length == 0) {
-        window.location.href = '/login';
-    } else {
-        let userId = window.localStorage.getItem('userId');
-        console.log("userID", userId);
-        console.log("event.target.id", event.target.id);
-
-        let plant = searchResult[parseInt(event.target.id)];
-        console.log("plant", plant);
-
-        let plantApiId = plant.plantApiId;
-        let commonName = plant.commonName;
-        let scientificName = plant.scientificName;
-        let family = plant.family;
-        let familyCommonName = plant.familyCommonName;
-        let genus = plant.genus;
-        let imageUrl = plant.imageUrl;
-
-        let result = await apiShowUserPlants(userId);
-
-        window.location.href = '/';
-    }
+    await apiDeleteUserPlants(plant.user_plant_id);
+    handleDisplayMyPlants();
 }
 
 handleDisplayMyPlants();
