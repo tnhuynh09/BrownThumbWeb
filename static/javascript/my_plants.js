@@ -17,7 +17,7 @@ function handleDisplayMyPlants() {
             let scientificNameLi = document.createElement("li");
             let familyLi = document.createElement("li");
             let familyCommonNameLi = document.createElement("li");
-            let genus = document.createElement("li");
+            let genusLi = document.createElement("li");
 
             scientificNameLi.classList.add("card-text");
             scientificNameLi.innerText = "Scientific Name: " + plant.scientificName;
@@ -28,8 +28,8 @@ function handleDisplayMyPlants() {
             familyCommonNameLi.classList.add("card-text");
             familyCommonNameLi.innerText = "Family Common Name: " + plant.familyCommonName;
 
-            genus.classList.add("card-text");
-            genus.innerText = "Genus: " + plant.genus;
+            genusLi.classList.add("card-text");
+            genusLi.innerText = "Genus: " + plant.genus;
 
             let plantUl = document.createElement("ul");
             plantUl.classList.add("pl-0");
@@ -37,7 +37,7 @@ function handleDisplayMyPlants() {
             plantUl.append(scientificNameLi);
             plantUl.append(familyLi);
             plantUl.append(familyCommonNameLi);
-            plantUl.append(genus);
+            plantUl.append(genusLi);
 
             let viewJournalsBtn = document.createElement("button");
             viewJournalsBtn.classList.add("btn");

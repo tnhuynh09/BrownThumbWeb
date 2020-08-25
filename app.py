@@ -54,6 +54,11 @@ def show_plant_journals():
     
     return render_template("plant_journals.html")
 
+@app.route('/journals/add')
+def add_plant_journals():
+
+    return render_template("add_journal_form.html")
+
 @app.route('/test')
 def test():
 

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Journal{% endblock %}
+
+{% block resource %}
+<link rel="stylesheet" href="/static/stylesheets/add_journal_form.css">
+{% endblock %}
+
+{% block content %}
+<!-- Page Content -->
+<div class="container portfolio">
+    <div class="bio-info mt-5">
+        <div class="row py-5">
+            <div class="bio-content pt-4 px-4">
+                <h1>Add Journal</h1>
+                <form id="add-journal-form">
+                    <div class="input-wrapper">
+                        <input type="text" class="form-control" id="inputTitle" placeholder="Title">
+                    </div>
+                    <div class="input-wrapper">
+                        <input type="text" class="form-control" id="inputImageUrl" placeholder="Image URL">
+                    </div>
+                    <div class="input-wrapper">
+                        <textarea type="text" rows="6" cols="50" class="form-control" id="inputNotes"
+                            placeholder="Notes"></textarea>
+                    </div>
+                    <button type="submit" id="add-journal-btn" class="btn btn-light my-2"><i
+                            class="fas fa-check-circle"></i>
+                        Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/javascript/add_journal_form.js"></script>
+{% endblock %}

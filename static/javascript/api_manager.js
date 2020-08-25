@@ -61,3 +61,24 @@ async function apiDeleteUserPlants(userPlantId) {
 
     return response;
 }
+
+async function apiAddJournals(userPlantId, title, imageUrl, notes) {
+    let response = await axios.post(`${HOST_API}/plants/${userPlantId}/journal`, { "title": title, "imageUrl": imageUrl, "notes": notes });
+
+    return response;
+}
+
+function apiShowPlantJournal(userPlantId, responseSuccess) {
+    console.log("API - apiShowPlantJournal");
+
+    axios.get(`${HOST_API}/plants/${userPlantId}/journal`).then(response => {
+        responseSuccess(response);
+    });
+}
+
+async function apiDeletePlantJournal(plantJournalId) {
+
+    let response = await axios.delete(`${HOST_API}/plants/${plantJournalId}/journal`);
+
+    return response;
+}
