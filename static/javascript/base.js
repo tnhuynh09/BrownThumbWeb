@@ -24,7 +24,6 @@ function updateHeader() {
 }
 
 $("#nav-logout").click(function () {
-    console.log("bitches")
     // localStorage.setItem("userId", "");
     // localStorage.setItem("username", "");
     window.localStorage.clear();

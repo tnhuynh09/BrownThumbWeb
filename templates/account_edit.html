@@ -15,8 +15,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="bio-image">
-                            <img src="https://images.unsplash.com/photo-1543523195-e0613799d7ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=80"
-                                alt="image" />
+                            <img id="profile-image" alt="image" />
                         </div>
                     </div>
                 </div>
@@ -25,17 +24,15 @@
                 <div class="bio-content pt-4">
                     <h1>Edit Profile</h1>
 
-                    <form>
+                    <form id="edit-user-form">
                         <div class="form-group row">
-                            <div class="col-sm-10 mb-2">
-                                <input type="text" class="form-control" id="inputUsername" placeholder="Username">
-                            </div>
-                            <div class="col-sm-10 mb-2">
-                                <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                            <div class="col-sm-10 mb-0">
+                                <h6 id="username-handle"></h6>
                             </div>
                             <div class="col-sm-10 mb-2">
                                 <input type="text" class="form-control" id="inputImageUrl" placeholder="Image Url">
-                                <button type="submit" class="btn btn-light my-2"><i class="fas fa-check-circle"></i>
+                                <button type="submit" class="btn btn-light my-2" id="edit-profile-btn"><i
+                                        class="fas fa-check-circle"></i>
                                     Submit</button>
                             </div>
                         </div>
@@ -45,4 +42,6 @@
         </div>
     </div>
 </div>
+
+<script src="/static/javascript/account_edit.js"></script>
 {% endblock %}

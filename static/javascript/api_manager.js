@@ -23,6 +23,7 @@ async function apiLogin(username, password) {
     console.log("apiLogin --- response", response);
     localStorage.setItem("userId", response.data.user.id);
     localStorage.setItem("username", response.data.user.username);
+    localStorage.setItem("imageUrl", response.data.user.imageUrl);
 
     return response;
 }
@@ -36,6 +37,16 @@ async function apiSignup(username, password, imageUrl) {
     console.log("apiSignup --- response", response);
     localStorage.setItem("userId", response.data.user.id);
     localStorage.setItem("username", response.data.user.username);
+    localStorage.setItem("imageUrl", response.data.user.imageUrl);
+
+    return response;
+}
+
+async function apiEditUserProfile(userId, imageUrl) {
+
+    let response = await axios.patch(`${HOST_API}/users/edit`, { "userId": userId, "imageUrl": imageUrl });
+
+    localStorage.setItem("imageUrl", response.data.user.imageUrl);
 
     return response;
 }
