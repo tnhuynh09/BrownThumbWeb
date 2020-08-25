@@ -11,12 +11,13 @@
     <script src="https://unpkg.com/bootstrap"></script>
     <link rel="stylesheet" href="https://unpkg.com/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+    <link rel="stylesheet" href="/static/stylesheets/base.css">
     {% block resource %}ADDITIONAL STYLING GOES HERE{% endblock %}
 </head>
 
 <body class="d-flex flex-column">
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white static-top shadow">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top shadow">
         <div class="container">
             <a class="navbar-brand text-secondary" href="/">
                 <img src="/static/images/brown_thumb.png" width="30" height="30" class="d-inline-block align-top"
@@ -36,10 +37,10 @@
                         <a id="nav-signup" class="nav-link" href="/signup">Signup</a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav-username" class="nav-link" href=""></a>
+                        <a id="nav-username" class="nav-link" href="/account"></a>
                     </li>
                     <li class="nav-item">
-                        <a id="nav-myaccount" class="nav-link" href="/account">My Account</a>
+                        <a id="nav-myaccount" class="nav-link" href="/my-plants">My Plants</a>
                     </li>
                     <li class="nav-item">
                         <a id="nav-logout" class="nav-link" href="">Logout</a>

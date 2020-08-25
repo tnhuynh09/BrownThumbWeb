@@ -5,6 +5,92 @@ const urlParams = new URLSearchParams(queryString);
 const userPlantId = urlParams.get("user-plant-id");
 console.log("urlParams - user-plant-id ", userPlantId);
 
+
+// function GetFormattedDate() {
+//     var todayTime = new Date();
+//     var month = format(todayTime.getMonth() + 1);
+//     var day = format(todayTime.getDate());
+//     var year = format(todayTime.getFullYear());
+//     return month + "/" + day + "/" + year;
+// }
+
+function handleDisplayPlant() {
+    apiShowPlant(userPlantId, function (result) {
+
+        plant = result.data.result;
+
+        let scientificNameLi = document.createElement("li");
+        let familyLi = document.createElement("li");
+        let familyCommonNameLi = document.createElement("li");
+        let genusLi = document.createElement("li");
+
+        scientificNameLi.classList.add("card-text");
+        scientificNameLi.innerText = "Scientific Name: " + plant.scientificName;
+
+        familyLi.classList.add("card-text");
+        familyLi.innerText = "Family: " + plant.family;
+
+        familyCommonNameLi.classList.add("card-text");
+        familyCommonNameLi.innerText = "Family Common Name: " + plant.familyCommonName;
+
+        genusLi.classList.add("card-text");
+        genusLi.innerText = "Genus: " + plant.genus;
+
+        let plantUl = document.createElement("ul");
+        plantUl.classList.add("pl-0");
+
+        plantUl.append(scientificNameLi);
+        plantUl.append(familyLi);
+        plantUl.append(familyCommonNameLi);
+        plantUl.append(genusLi);
+
+        let addJournalBtn = document.createElement("button");
+        addJournalBtn.classList.add("btn");
+        addJournalBtn.classList.add("btn-secondary");
+        addJournalBtn.classList.add("btn-sm");
+
+        addJournalBtn.setAttribute("id", "add-journal-btn");
+        addJournalBtn.innerText = "Add Journal";
+
+        addJournalBtn.addEventListener("click", addJournalOnClick);
+
+        let cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+
+        let cardTitle = document.createElement("h5");
+        cardTitle.classList.add("card-title");
+
+        if (plant.commonName != null) {
+            cardTitle.innerText = plant.commonName
+        } else {
+            cardTitle.innerText = "-"
+        };
+
+        cardBody.append(cardTitle);
+        cardBody.append(plantUl);
+        cardBody.append(addJournalBtn);
+
+        let card = document.createElement("div");
+        card.classList.add("card");
+        card.classList.add("mb-2");
+
+        let cardImage = document.createElement("img");
+        cardImage.classList.add("card-img-top");
+
+        if (plant.imageUrl != null) {
+            cardImage.setAttribute("src", plant.imageUrl);
+        } else {
+            cardImage.setAttribute("src", "https://www.clipartkey.com/mpngs/m/158-1589123_plant-plants-overlay-doddle-black-white-simple-plant.png");
+        };
+
+        card.append(cardImage);
+        card.append(cardBody);
+
+        let cardDeck = document.getElementById("card-deck-plant");
+        cardDeck.append(card);
+    });
+}
+
 function handleDisplayJournals() {
     apiShowPlantJournal(userPlantId, function (result) {
 
@@ -15,7 +101,18 @@ function handleDisplayJournals() {
 
         for (let i = 0; i < myPlantJournals.length; i++) {
             let journal = myPlantJournals[i];
+
+            var date_format_ms = Date.parse(journal.date);
+            var date_format = new Date(date_format_ms)
+
+            parsed_date = date_format.toLocaleDateString()
+            console.log("DATE", parsed_date);
+
+            let dateLi = document.createElement("li");
             let notesLi = document.createElement("li");
+
+            dateLi.classList.add("card-text");
+            dateLi.innerText = "Date: " + parsed_date;
 
             notesLi.classList.add("card-text");
             notesLi.innerText = "Notes: " + journal.notes;
@@ -23,6 +120,7 @@ function handleDisplayJournals() {
             let journalUl = document.createElement("ul");
             journalUl.classList.add("pl-0");
 
+            journalUl.append(dateLi);
             journalUl.append(notesLi);
 
             //     let viewJournalsBtn = document.createElement("button");
@@ -82,9 +180,6 @@ function handleDisplayJournals() {
 
 }
 
-let addJournalBtn = document.getElementById("add-journal-btn");
-addJournalBtn.addEventListener("click", addJournalOnClick);
-
 function addJournalOnClick(evt) {
     console.log("HELOOOO WORRRRRLLLDDDD");
 
@@ -107,4 +202,5 @@ async function removePlantJournalOnClick(evt) {
 //     window.location.href = '/journals?user-plant-id=' + plant.user_plant_id;
 // }
 
+handleDisplayPlant();
 handleDisplayJournals();

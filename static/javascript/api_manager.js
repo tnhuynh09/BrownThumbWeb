@@ -82,3 +82,11 @@ async function apiDeletePlantJournal(plantJournalId) {
 
     return response;
 }
+
+function apiShowPlant(userPlantId, responseSuccess) {
+    console.log("API - apiShowPlant");
+
+    axios.get(`${HOST_API}/plants/${userPlantId}`).then(response => {
+        responseSuccess(response);
+    });
+}
