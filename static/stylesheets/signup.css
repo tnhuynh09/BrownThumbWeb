@@ -1,11 +1,11 @@
 .image-container{
-  background: url('https://images.unsplash.com/photo-1525498128493-380d1990a112?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=675&q=80') center no-repeat;
+  background: url('http://brown-thumb-web.herokuapp.com/static/images/signup-page.jpeg') center no-repeat;
   background-size: cover;
   height: 100vh;
 }
 
 .form-container{
-  background-color: #f5d769;
+  background-color: #a3b9a2;
   display: flex;
   justify-content: center;
 }
