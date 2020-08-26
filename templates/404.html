@@ -3,10 +3,31 @@
 {% block title %}404 Error{% endblock %}
 
 {% block resource %}
-<link rel="" href="">
+<link rel="stylesheet" href="/static/stylesheets/404.css">
 {% endblock %}
 
 {% block content %}
-<!-- Page Content -->
+
+<div class="message-404 mt-5">
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-md-12">
+                <div class="error-template">
+                    <h1>
+                        Oops!</h1>
+                    <h2>
+                        404 Not Found</h2>
+                    <div class="error-details">
+                        We can't seem to find the page you're looking for.
+                    </div>
+                    <div class="error-actions">
+                        <a href="/" class="btn btn-primary btn-sm">
+                            Take Me Home </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}
