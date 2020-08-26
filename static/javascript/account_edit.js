@@ -14,6 +14,7 @@ async function editProfile(evt) {
 
     let userId = localStorage.getItem("userId");
     let imageUrl = $imageUrl.val();
+
     let result = await apiEditUserProfile(userId, imageUrl);
 
     updateHeader();
