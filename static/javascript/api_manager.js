@@ -23,7 +23,6 @@ async function apiLogin(username, password) {
     console.log("apiLogin --- response", response);
     console.log("apiLogin --- DATA", response.data);
     console.log("apiLogin --- ERRORS", response.data.errors);
-    console.log("apiLogin --- Length", Object.keys(response.data.errors).length);
 
     // let errors = Object.keys(response.data.errors).length;
 
