@@ -80,7 +80,7 @@ function handleDisplayPlant() {
         if (plant.imageUrl != null) {
             cardImage.setAttribute("src", plant.imageUrl);
         } else {
-            cardImage.setAttribute("src", "https://www.clipartkey.com/mpngs/m/158-1589123_plant-plants-overlay-doddle-black-white-simple-plant.png");
+            cardImage.setAttribute("src", "http://brown-thumb-api.herokuapp.com/static/images/plant-default.png");
         };
 
         card.append(cardImage);
@@ -167,7 +167,7 @@ function handleDisplayJournals() {
             if (journal.imageUrl != null) {
                 cardImage.setAttribute("src", journal.imageUrl);
             } else {
-                cardImage.setAttribute("src", "https://www.clipartkey.com/mpngs/m/158-1589123_plant-plants-overlay-doddle-black-white-simple-plant.png");
+                cardImage.setAttribute("src", "http://brown-thumb-api.herokuapp.com/static/images/journal-default.jpeg");
             };
 
             card.append(cardImage);

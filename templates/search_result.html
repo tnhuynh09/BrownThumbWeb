@@ -16,9 +16,7 @@
             {% if plant.imageUrl %}
             <img class="card-img-top" src={{plant.imageUrl}} alt="">
             {% else %}
-            <img class="card-img-top"
-                src="https://www.clipartkey.com/mpngs/m/158-1589123_plant-plants-overlay-doddle-black-white-simple-plant.png"
-                alt="">
+            <img class="card-img-top" src="http://brown-thumb-api.herokuapp.com/static/images/plant-default.png" alt="">
             {% endif %}
             <div class="card-body">
                 {% if plant.commonName %}
