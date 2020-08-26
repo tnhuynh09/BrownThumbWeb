@@ -1,15 +1,10 @@
-/* body{
-    background: linear-gradient(90deg, #abbaab 50%, #fce3aa 50%);
-} */
-/* Set a background image by replacing the URL below */
 body {
     background: url('http://brown-thumb-web.herokuapp.com/static/images/add-journal-page.jpeg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-  }
-
+}
 
 .portfolio{
     padding:6%;
@@ -26,16 +21,6 @@ body {
     font-family: 'Charmonman', cursive;
     font-weight:600;
 }
-/* 
-.bio-image{
-    text-align:center;
-}
-
-.bio-image img{
-    border-radius:50%;
-    height: 273px;
-    width: 273px;
-} */
 
 .bio-content{
     text-align:left;

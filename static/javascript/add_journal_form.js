@@ -13,6 +13,7 @@ async function addJournalOnClick(evt) {
     let imageUrl = imageUrlInput.value;
     let notes = notesInput.value;
 
+    // Grab the query string from the URL
     const queryString = window.location.search;
     console.log("queryString", queryString);
     const urlParams = new URLSearchParams(queryString);
@@ -22,6 +23,4 @@ async function addJournalOnClick(evt) {
     await apiAddJournals(userPlantId, title, imageUrl, notes);
 
     window.location.href = '/journals?user-plant-id=' + userPlantId;
-
-    console.log("title", title);
 }

@@ -1,7 +1,6 @@
 let myPlants = [];
 
 function handleDisplayMyPlants() {
-
     let userId = localStorage.getItem("userId")
 
     apiShowUserPlants(userId, function (result) {
@@ -101,16 +100,14 @@ function handleDisplayMyPlants() {
 
 async function removeUserPlantOnClick(evt) {
     let plant = myPlants[parseInt(event.target.id)];
-    console.log("plant", plant.user_plant_id);
 
     await apiDeleteUserPlants(plant.user_plant_id);
     handleDisplayMyPlants();
 }
 
 async function viewJournalsOnClick(evt) {
-    console.log("viewJournalsOnClick");
     let plant = myPlants[parseInt(event.target.id)];
-    console.log("plant id", plant);
+
     window.location.href = '/journals?user-plant-id=' + plant.user_plant_id;
 }
 

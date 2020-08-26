@@ -11,11 +11,7 @@ async function login(evt) {
     let password = $password.val();
     let result = await apiLogin(username, password);
 
-    // let errors = Object.keys(result.data.errors).length;
-
     if (result.data.errors) {
-        console.log("nothing to see here");
-        console.log("NOTHING!", result.data.errors.errors);
         let error = result.data.errors.errors;
         $error.append(error);
     } else {

@@ -5,15 +5,6 @@ const urlParams = new URLSearchParams(queryString);
 const userPlantId = urlParams.get("user-plant-id");
 console.log("urlParams - user-plant-id ", userPlantId);
 
-
-// function GetFormattedDate() {
-//     var todayTime = new Date();
-//     var month = format(todayTime.getMonth() + 1);
-//     var day = format(todayTime.getDate());
-//     var year = format(todayTime.getFullYear());
-//     return month + "/" + day + "/" + year;
-// }
-
 function handleDisplayPlant() {
     apiShowPlant(userPlantId, function (result) {
 
@@ -123,15 +114,15 @@ function handleDisplayJournals() {
             journalUl.append(dateLi);
             journalUl.append(notesLi);
 
-            //     let viewJournalsBtn = document.createElement("button");
-            //     viewJournalsBtn.classList.add("btn");
-            //     viewJournalsBtn.classList.add("btn-secondary");
-            //     viewJournalsBtn.classList.add("btn-sm");
-            //     viewJournalsBtn.classList.add("mr-2");
-            //     viewJournalsBtn.classList.add("mb-2");
+            //     let editJournalsBtn = document.createElement("button");
+            //     editJournalsBtn.classList.add("btn");
+            //     editJournalsBtn.classList.add("btn-secondary");
+            //     editJournalsBtn.classList.add("btn-sm");
+            //     editJournalsBtn.classList.add("mr-2");
+            //     editJournalsBtn.classList.add("mb-2");
 
-            //     viewJournalsBtn.setAttribute("id", i);
-            //     viewJournalsBtn.innerText = "View Journals";
+            //     editJournalsBtn.setAttribute("id", i);
+            //     editJournalsBtn.innerText = "View Journals";
 
             let removeJournalBtn = document.createElement("button");
             removeJournalBtn.classList.add("btn");
@@ -141,7 +132,7 @@ function handleDisplayJournals() {
             removeJournalBtn.setAttribute("id", i);
             removeJournalBtn.innerText = "Remove Journal";
 
-            //     viewJournalsBtn.addEventListener("click", viewJournalsOnClick);
+            //     editJournalsBtn.addEventListener("click", addJournalsOnClick);
             removeJournalBtn.addEventListener("click", removePlantJournalOnClick);
 
             let cardBody = document.createElement("div");
@@ -154,7 +145,7 @@ function handleDisplayJournals() {
 
             cardBody.append(cardTitle);
             cardBody.append(journalUl);
-            //     cardBody.append(viewJournalsBtn);
+            //     cardBody.append(addJournalsBtn);
             cardBody.append(removeJournalBtn);
 
             let card = document.createElement("div");
@@ -177,30 +168,18 @@ function handleDisplayJournals() {
             cardDeck.append(card);
         }
     });
-
 }
 
 function addJournalOnClick(evt) {
-    console.log("HELOOOO WORRRRRLLLDDDD");
-
     window.location.href = '/journals/add?user-plant-id=' + userPlantId;
 }
 
-
 async function removePlantJournalOnClick(evt) {
     let journal = myPlantJournals[parseInt(event.target.id)];
-    console.log("plant", journal.id);
 
     await apiDeletePlantJournal(journal.id);
     handleDisplayJournals();
 }
-
-// async function viewJournalsOnClick(evt) {
-//     console.log("viewJournalsOnClick");
-//     let plant = myPlantJournals[parseInt(event.target.id)];
-//     console.log("plant id", plant);
-//     window.location.href = '/journals?user-plant-id=' + plant.user_plant_id;
-// }
 
 handleDisplayPlant();
 handleDisplayJournals();

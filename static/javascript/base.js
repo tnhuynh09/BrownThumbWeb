@@ -1,5 +1,3 @@
-console.log("BASE.JS !!!!!");
-
 function updateHeader() {
     let $navLogin = $("#nav-login");
     let $navSignup = $("#nav-signup");

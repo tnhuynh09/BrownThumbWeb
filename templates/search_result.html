@@ -11,29 +11,6 @@
 <div class="container my-5" id="plant-container">
     <h1 class="pb-2">SEARCH RESULTS</h1>
     <div class="card-deck" id="card-deck">
-        {%for plant in data%}
-        <div class="card mb-2">
-            {% if plant.imageUrl %}
-            <img class="card-img-top" src={{plant.imageUrl}} alt="">
-            {% else %}
-            <img class="card-img-top" src="http://brown-thumb-api.herokuapp.com/static/images/plant-default.png" alt="">
-            {% endif %}
-            <div class="card-body">
-                {% if plant.commonName %}
-                <h5 class="card-title">{{plant.commonName}}</h5>
-                {% else %}
-                <h5 class="card-title">-</h5>
-                {% endif %}
-                <ul class="pl-0">
-                    <li class="card-text">Scientific Name: {{plant.scientificName}}</li>
-                    <li class="card-text">Family: {{plant.family}}</li>
-                    <li class="card-text">Family Common Name: {{plant.familyCommonName}}</li>
-                    <li class="card-text">Genus: {{plant.genus}}</li>
-                </ul>
-                <button class="btn btn-secondary btn-sm" id={{plant.plantApiId}}>Add plant</button>
-            </div>
-        </div>
-        {%endfor%}
     </div>
 </div>
 

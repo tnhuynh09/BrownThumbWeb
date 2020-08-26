@@ -7,18 +7,9 @@ function handleSearch() {
     const query = urlParams.get("query");
     console.log("urlParams - query ", query);
 
-    // let response = await apiSearch(query);
-    // let result = response.data;
-    // console.log('result', result);
-
     apiSearch(query, function (result) {
-        // console.log('result', result);
-
         searchResult = result.data.results;
-        console.log('searchResult', searchResult);
-        console.log('commonName', searchResult[0].commonName);
 
-        // for (let plant of searchResult) {
         for (let i = 0; i < searchResult.length; i++) {
             let plant = searchResult[i];
             let scientificNameLi = document.createElement("li");
@@ -50,13 +41,10 @@ function handleSearch() {
             addPlantBtn.classList.add("btn");
             addPlantBtn.classList.add("btn-secondary");
             addPlantBtn.classList.add("btn-sm");
-            // NEED TO SET ID TO THE INDEX OF THE ARRAY! 
-            // addPlantBtn.setAttribute("id", searchResult.indexOf(plant));
             addPlantBtn.setAttribute("id", i);
             addPlantBtn.innerText = "Add Plant";
 
             addPlantBtn.addEventListener("click", addButtonOnClick);
-            // document.getElementById("myBtn").addEventListener("click", displayDate);
 
             let cardBody = document.createElement("div");
             cardBody.classList.add("card-body");
@@ -97,8 +85,6 @@ function handleSearch() {
 }
 
 async function addButtonOnClick(evt) {
-    console.log("HELOOOO WORRRRRLLLDDDD");
-
     evt.preventDefault();
 
     if (localStorage.length == 0) {

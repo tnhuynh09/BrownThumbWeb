@@ -4,27 +4,15 @@ const HOST_API = "https://brown-thumb-api.herokuapp.com/";
 // Grab data from the search field and make a call to the external API 
 function apiSearch(query, responseSuccess) {
     console.log("API - search")
-    // let response = await axios.get(`${HOST_API}search?query=${query}`)
-    // return response;
 
     axios.get(`${HOST_API}search?query=${query}`).then(response => {
         responseSuccess(response);
-        // console.log("API - search ", response);
     });
 }
 
 // Grab data from the search field and make a call to the local API 
 async function apiLogin(username, password) {
-    console.log("BEFOREEE ********");
     let response = await axios.post(`${HOST_API}/users/login`, { "username": username, "password": password });
-    // let result = response.data
-
-    // save user id and user name and image url to session?
-    console.log("apiLogin --- response", response);
-    console.log("apiLogin --- DATA", response.data);
-    console.log("apiLogin --- ERRORS", response.data.errors);
-
-    // let errors = Object.keys(response.data.errors).length;
 
     if (response.data.errors) {
         window.localStorage.clear();
@@ -40,13 +28,7 @@ async function apiLogin(username, password) {
 async function apiSignup(username, password, imageUrl) {
 
     let response = await axios.post(`${HOST_API}/users/signup`, { "username": username, "password": password, "imageUrl": imageUrl });
-
-    // save user id and user name and image url to session?
-    // localStorage.setItem("user", ;
     console.log("apiSignup --- response", response);
-    // console.log("apiSignup --- DATA", response.data.errors.username[0]);
-
-    // let errors = Object.keys(response.data.errors).length;
 
     if (response.data.errors) {
         window.localStorage.clear();

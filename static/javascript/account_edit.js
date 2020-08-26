@@ -7,7 +7,6 @@ let $editUserBtn = $("#edit-profile-btn");
 
 $profileImage.attr("src", localStorage.getItem("imageUrl"));
 $username.append("USERNAME: " + localStorage.getItem("username"));
-// $username.html(localStorage.getItem("username"));
 
 async function editProfile(evt) {
     evt.preventDefault();
