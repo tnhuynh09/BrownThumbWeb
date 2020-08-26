@@ -21,9 +21,19 @@ async function apiLogin(username, password) {
 
     // save user id and user name and image url to session?
     console.log("apiLogin --- response", response);
-    localStorage.setItem("userId", response.data.user.id);
-    localStorage.setItem("username", response.data.user.username);
-    localStorage.setItem("imageUrl", response.data.user.imageUrl);
+    console.log("apiLogin --- DATA", response.data);
+    console.log("apiLogin --- ERRORS", response.data.errors);
+    console.log("apiLogin --- Length", Object.keys(response.data.errors).length);
+
+    // let errors = Object.keys(response.data.errors).length;
+
+    if (response.data.errors) {
+        window.localStorage.clear();
+    } else {
+        localStorage.setItem("userId", response.data.user.id);
+        localStorage.setItem("username", response.data.user.username);
+        localStorage.setItem("imageUrl", response.data.user.imageUrl);
+    }
 
     return response;
 }
@@ -35,9 +45,17 @@ async function apiSignup(username, password, imageUrl) {
     // save user id and user name and image url to session?
     // localStorage.setItem("user", ;
     console.log("apiSignup --- response", response);
-    localStorage.setItem("userId", response.data.user.id);
-    localStorage.setItem("username", response.data.user.username);
-    localStorage.setItem("imageUrl", response.data.user.imageUrl);
+    // console.log("apiSignup --- DATA", response.data.errors.username[0]);
+
+    // let errors = Object.keys(response.data.errors).length;
+
+    if (response.data.errors) {
+        window.localStorage.clear();
+    } else {
+        localStorage.setItem("userId", response.data.user.id);
+        localStorage.setItem("username", response.data.user.username);
+        localStorage.setItem("imageUrl", response.data.user.imageUrl);
+    }
 
     return response;
 }
