@@ -47,6 +47,7 @@ def show_plants():
 
     return render_template("my_plants.html")
 
+<<<<<<< HEAD
 @app.route('/journals')
 def show_plant_journals():
     """Show plant's journals route."""
@@ -56,6 +57,15 @@ def show_plant_journals():
 @app.route('/journals/add')
 def add_plant_journals():
     """Show form to add new journal for plant route."""
+=======
+@app.route('/journals/user-plant-id/<int:user_plant_id>')
+def show_plant_journals(user_plant_id):
+    
+    return render_template("plant_journals.html")
+
+@app.route('/journals/add/user-plant-id/<int:user_plant_id>')
+def add_plant_journals(user_plant_id):
+>>>>>>> master
 
     return render_template("add_journal_form.html")
 
