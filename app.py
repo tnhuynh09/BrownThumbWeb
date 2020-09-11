@@ -49,13 +49,13 @@ def show_plants():
 
     return render_template("my_plants.html")
 
-@app.route('/journals')
-def show_plant_journals():
+@app.route('/journals/user-plant-id/<int:user_plant_id>')
+def show_plant_journals(user_plant_id):
     
     return render_template("plant_journals.html")
 
-@app.route('/journals/add')
-def add_plant_journals():
+@app.route('/journals/add/user-plant-id/<int:user_plant_id>')
+def add_plant_journals(user_plant_id):
 
     return render_template("add_journal_form.html")
 

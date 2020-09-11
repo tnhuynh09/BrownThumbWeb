@@ -1,10 +1,21 @@
 let myPlantJournals = [];
-const queryString = window.location.search;
-console.log("queryString", queryString);
-const urlParams = new URLSearchParams(queryString);
-const userPlantId = urlParams.get("user-plant-id");
-console.log("urlParams - user-plant-id ", userPlantId);
+console.log("window.location", window.location.href);
+// const queryString = window.location.search;
+// console.log("queryString", queryString);
+// const urlParams = new URLSearchParams(queryString);
+// const userPlantId = urlParams.get("user-plant-id");
+// console.log("urlParams - user-plant-id ", userPlantId);
 
+// const url = window.location.href;
+// const urlArraySplit = url.split("/");
+// console.log("urlArraySplit", urlArraySplit);
+// const userPlantId = urlArraySplit[urlArraySplit.length - 1];
+// console.log("userPlantId", userPlantId);
+
+const url = new URL(window.location.href);
+console.log("url", url);
+const pathArray = url.pathname.split("/");
+const userPlantId = pathArray[pathArray.length - 1];
 
 // function GetFormattedDate() {
 //     var todayTime = new Date();
@@ -183,7 +194,7 @@ function handleDisplayJournals() {
 function addJournalOnClick(evt) {
     console.log("HELOOOO WORRRRRLLLDDDD");
 
-    window.location.href = '/journals/add?user-plant-id=' + userPlantId;
+    window.location.href = '/journals/add/user-plant-id/' + userPlantId;
 }
 
 

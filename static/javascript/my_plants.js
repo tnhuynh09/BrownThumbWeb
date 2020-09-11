@@ -111,7 +111,7 @@ async function viewJournalsOnClick(evt) {
     console.log("viewJournalsOnClick");
     let plant = myPlants[parseInt(event.target.id)];
     console.log("plant id", plant);
-    window.location.href = '/journals?user-plant-id=' + plant.user_plant_id;
+    window.location.href = '/journals/user-plant-id/' + plant.user_plant_id;
 }
 
 handleDisplayMyPlants();
