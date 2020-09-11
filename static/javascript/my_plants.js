@@ -107,13 +107,8 @@ async function removeUserPlantOnClick(evt) {
 
 async function viewJournalsOnClick(evt) {
     let plant = myPlants[parseInt(event.target.id)];
-<<<<<<< HEAD
-
-    window.location.href = '/journals?user-plant-id=' + plant.user_plant_id;
-=======
     console.log("plant id", plant);
     window.location.href = '/journals/user-plant-id/' + plant.user_plant_id;
->>>>>>> master
 }
 
 handleDisplayMyPlants();

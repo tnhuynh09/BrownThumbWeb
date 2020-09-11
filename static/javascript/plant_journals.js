@@ -1,11 +1,4 @@
 let myPlantJournals = [];
-<<<<<<< HEAD
-const queryString = window.location.search;
-console.log("queryString", queryString);
-const urlParams = new URLSearchParams(queryString);
-const userPlantId = urlParams.get("user-plant-id");
-console.log("urlParams - user-plant-id ", userPlantId);
-=======
 console.log("window.location", window.location.href);
 // const queryString = window.location.search;
 // console.log("queryString", queryString);
@@ -31,7 +24,6 @@ const userPlantId = pathArray[pathArray.length - 1];
 //     var year = format(todayTime.getFullYear());
 //     return month + "/" + day + "/" + year;
 // }
->>>>>>> master
 
 function handleDisplayPlant() {
     apiShowPlant(userPlantId, function (result) {
@@ -199,13 +191,9 @@ function handleDisplayJournals() {
 }
 
 function addJournalOnClick(evt) {
-<<<<<<< HEAD
-    window.location.href = '/journals/add?user-plant-id=' + userPlantId;
-=======
     console.log("HELOOOO WORRRRRLLLDDDD");
 
     window.location.href = '/journals/add/user-plant-id/' + userPlantId;
->>>>>>> master
 }
 
 async function removePlantJournalOnClick(evt) {
