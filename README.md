@@ -8,7 +8,7 @@ A web application that help plant lovers with a brown thumb to access a resource
 Get started by creating an account to start adding plants to your profile. Create progress journals for each plants you owned to keep track of its progress. 
 
 ## Technologies Used
-Python, Flask, PostgreSQL, SQLAlchemy, Jinja, Javascript, HTML, CSS, Boostrap 
+Python, Flask, PostgreSQL, SQLAlchemy, Jinja, Javascript, HTML, CSS, Bootstrap 
 
 ## External API 
 
