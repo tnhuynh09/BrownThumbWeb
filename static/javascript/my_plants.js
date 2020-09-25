@@ -1,3 +1,7 @@
+if (localStorage.getItem("jwt") == null || localStorage.getItem("jwt") == "") {
+    window.location.href = '/';
+}
+
 let myPlants = [];
 
 function handleDisplayMyPlants() {

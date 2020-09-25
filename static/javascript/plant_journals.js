@@ -1,3 +1,7 @@
+if (localStorage.getItem("jwt") == null || localStorage.getItem("jwt") == "") {
+    window.location.href = '/';
+}
+
 let myPlantJournals = [];
 console.log("window.location", window.location.href);
 // const queryString = window.location.search;

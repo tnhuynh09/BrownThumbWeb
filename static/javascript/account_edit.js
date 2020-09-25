@@ -1,3 +1,6 @@
+if (localStorage.getItem("jwt") == null || localStorage.getItem("jwt") == "") {
+    window.location.href = '/';
+}
 
 let $profileImage = $("#profile-image");
 let $editUserForm = $("#edit-user-form");

@@ -91,11 +91,11 @@ async function addButtonOnClick(evt) {
         window.location.href = '/login';
     } else {
         let userId = window.localStorage.getItem('userId');
-        console.log("userID", userId);
-        console.log("event.target.id", event.target.id);
+        // console.log("userID", userId);
+        // console.log("event.target.id", event.target.id);
 
         let plant = searchResult[parseInt(event.target.id)];
-        console.log("plant", plant);
+        // console.log("plant", plant);
 
         let plantApiId = plant.plantApiId;
         let commonName = plant.commonName;
@@ -106,6 +106,7 @@ async function addButtonOnClick(evt) {
         let imageUrl = plant.imageUrl;
 
         let result = await apiAddPlants(userId, plantApiId, commonName, scientificName, family, familyCommonName, genus, imageUrl);
+        console.log("ADD-PLANTS", result);
 
         window.location.href = '/my-plants';
     }

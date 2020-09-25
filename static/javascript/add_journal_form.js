@@ -1,3 +1,7 @@
+if (localStorage.getItem("jwt") == null || localStorage.getItem("jwt") == "") {
+    window.location.href = '/';
+}
+
 let titleInput = document.getElementById("inputTitle");
 let imageUrlInput = document.getElementById("inputImageUrl");
 let notesInput = document.getElementById("inputNotes");
